@@ -1,0 +1,30 @@
+Problem - Two Sums from LEETCODE
+solution ->
+//create a function 
+    public static int result(int[] arr , int target) {
+             //target is the sum to be found in array
+             //using Hashmaps
+             HashMap<Integer , Integer> map = new HashMap<>();
+             
+             //creating an empty array to store the index location "from" to "to" the sum is found.
+             int[] res = new int[2];
+             
+             for(int i = 0 ;i<arr.length;i++){
+             if(i == 0 && arr[i] == target){
+             res[1]=0;
+             res[0]=0;
+             }
+             if(map.containsKey(target-arr[i])){
+             res[1]=i;
+             res[0]=map.get(target-arr[i]);
+             }
+             else{
+             map.put(arr[i],i);
+             }
+             }
+             return res;
+             }
+             
+Actually the code code works like  , we do not have to sum the array but we have to consider every element and check its 
+difference with the target in the map and check, if the difference is present in the map then take out its index value else
+put the array element and its index in the map.
